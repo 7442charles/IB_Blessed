@@ -56,12 +56,21 @@
 </head>
 <body class="bg-gray-50 text-gray-800">
 
+    <!-- Info Row -->
+    <div class="bg-sky-700 text-white py-1">
+        <div class="container mx-auto flex flex-col items-center justify-center text-sm md:flex-row md:space-x-4 md:space-y-0">
+            <span class="text-white">Allen, TX, 75002</span>
+            <div class="flex space-x-4 mt-1 md:mt-0">
+                <a href="tel:+14694946693" class="hover:underline">+1 (469) 494-6693</a>
+                <a href="mailto:ibblessedllc@gmail.com" class="hover:underline">ibblessedllc@gmail.com</a>
+            </div>
+        </div>
+    </div>
+
     <!-- Navigation Bar -->
     <nav class="bg-white sticky top-0 z-50 shadow-md p-4">
         <div class="container mx-auto flex flex-col items-center md:flex-row md:justify-between">
-            <!-- Logo - Placed on its own line on mobile, moved to the left on desktop -->
             <a href="#" class="text-xl md:text-2xl font-bold text-sky-600 mb-2 md:mb-0">I.B. Blessed LLC</a>
-            <!-- Links - Placed on its own line on mobile, centered on desktop -->
             <div class="flex flex-1 justify-center space-x-4">
                 <a href="#about" class="text-sky-700 hover:text-sky-900 transition-colors">About Us</a>
                 <a href="#services" class="text-sky-700 hover:text-sky-900 transition-colors">Our Services</a>
@@ -70,108 +79,108 @@
         </div>
     </nav>
 
-<!-- Hero Section -->
-<header class="relative py-20 md:py-32 overflow-hidden bg-cover bg-center" 
-        style="background-image: url('Assets/images/7-cedar-elm-cir-allen-tx-75002-2-High-Res-2.webp');">
-    <div class="absolute inset-0 bg-sky-900 opacity-85"></div>
+    <!-- Hero Section -->
+    <header class="relative py-20 md:py-32 overflow-hidden bg-cover bg-center" 
+            style="background-image: url('Assets/images/7-cedar-elm-cir-allen-tx-75002-2-High-Res-2.webp');">
+        <div class="absolute inset-0 bg-sky-900 opacity-85"></div>
 
-    <div class="container mx-auto flex flex-col md:flex-row items-center md:gap-8 px-4 relative z-10 text-white">
-        
-        <!-- Left Text Content -->
-        <div class="md:w-1/2 text-center md:text-left mb-10 md:mb-0">
-            <h1 class="text-4xl md:text-6xl font-extrabold mb-4">
-                Home Based Care in Allen, TX
-            </h1>
-            <p class="text-xl md:text-2xl text-gray-200 mb-8">
-                At I.B. Blessed, it's not just care, it's a calling. We believe it's a blessing to serve those entrusted to us.
-            </p>
-            <a href="#contact" class="inline-block bg-sky-600 text-white font-semibold py-3 px-8 rounded-full shadow-lg hover:bg-sky-700 transition-transform transform hover:scale-105">
-                Schedule a Tour
-            </a>
+        <div class="container mx-auto flex flex-col md:flex-row items-center md:gap-8 px-4 relative z-10 text-white">
+            
+            <!-- Left Text Content -->
+            <div class="md:w-1/2 text-center md:text-left mb-10 md:mb-0">
+                <h1 class="text-4xl md:text-6xl font-extrabold mb-4">
+                    Home Based Care in Allen, TX
+                </h1>
+                <p class="text-xl md:text-2xl text-gray-200 mb-8">
+                    At I.B. Blessed, it's not just care, it's a calling. We believe it's a blessing to serve those entrusted to us.
+                </p>
+                <a href="#contact" class="inline-block bg-sky-600 text-white font-semibold py-3 px-8 rounded-full shadow-lg hover:bg-sky-700 transition-transform transform hover:scale-105">
+                    Schedule a Tour
+                </a>
+            </div>
+
+            <!-- Right Side Foreground Card Carousel -->
+            <div class="md:w-1/2 flex justify-center relative">
+                <!-- Stretched cards -->
+                <div id="card-carousel" class="relative w-[18rem] h-[22rem] md:w-[22rem] md:h-[30rem]"></div>
+            </div>
         </div>
+    </header>
 
-        <!-- Right Side Foreground Card Carousel -->
-        <div class="md:w-1/2 flex justify-center relative">
-            <!-- Stretched cards -->
-            <div id="card-carousel" class="relative w-[18rem] h-[22rem] md:w-[22rem] md:h-[30rem]"></div>
-        </div>
-    </div>
-</header>
+    <script>
+    // Image paths stored in an array
+    const images = [
+        "Assets/images/7-cedar-elm-cir-allen-tx-75002-2-High-Res-1.webp",
+        "Assets/images/7-cedar-elm-cir-allen-tx-75002-2-High-Res-2.webp",
+        "Assets/images/7-cedar-elm-cir-allen-tx-75002-2-High-Res-3.webp",
+        "Assets/images/7-cedar-elm-cir-allen-tx-75002-2-High-Res-4.webp", 
+        "Assets/images/7-cedar-elm-cir-allen-tx-75002-2-High-Res-5.webp",
+        "Assets/images/7-cedar-elm-cir-allen-tx-75002-2-High-Res-6.webp",
+        "Assets/images/7-cedar-elm-cir-allen-tx-75002-2-High-Res-7.webp",
+        "Assets/images/7-cedar-elm-cir-allen-tx-75002-2-High-Res-8.webp",
+        "Assets/images/7-cedar-elm-cir-allen-tx-75002-2-High-Res-9.webp",
+        "Assets/images/7-cedar-elm-cir-allen-tx-75002-2-High-Res-10.webp",
+        "Assets/images/7-cedar-elm-cir-allen-tx-75002-2-High-Res-11.jpg",
+        "Assets/images/7-cedar-elm-cir-allen-tx-75002-2-High-Res-12.jpg",
+        "Assets/images/7-cedar-elm-cir-allen-tx-75002-2-High-Res-13.jpg",
+        "Assets/images/7-cedar-elm-cir-allen-tx-75002-2-High-Res-14.jpg",
+        "Assets/images/7-cedar-elm-cir-allen-tx-75002-2-High-Res-15.jpg",
+        "Assets/images/7-cedar-elm-cir-allen-tx-75002-2-High-Res-16.jpg",
+        "Assets/images/7-cedar-elm-cir-allen-tx-75002-2-High-Res-17.jpg",
+        "Assets/images/7-cedar-elm-cir-allen-tx-75002-2-High-Res-18.jpg"
+    ];
 
-<script>
-  // Image paths stored in an array
-  const images = [
-    "Assets/images/7-cedar-elm-cir-allen-tx-75002-2-High-Res-1.webp",
-    "Assets/images/7-cedar-elm-cir-allen-tx-75002-2-High-Res-2.webp",
-    "Assets/images/7-cedar-elm-cir-allen-tx-75002-2-High-Res-3.webp",
-    "Assets/images/7-cedar-elm-cir-allen-tx-75002-2-High-Res-4.webp", 
-    "Assets/images/7-cedar-elm-cir-allen-tx-75002-2-High-Res-5.webp",
-    "Assets/images/7-cedar-elm-cir-allen-tx-75002-2-High-Res-6.webp",
-    "Assets/images/7-cedar-elm-cir-allen-tx-75002-2-High-Res-7.webp",
-    "Assets/images/7-cedar-elm-cir-allen-tx-75002-2-High-Res-8.webp",
-    "Assets/images/7-cedar-elm-cir-allen-tx-75002-2-High-Res-9.webp",
-    "Assets/images/7-cedar-elm-cir-allen-tx-75002-2-High-Res-10.webp",
-    "Assets/images/7-cedar-elm-cir-allen-tx-75002-2-High-Res-11.jpg",
-    "Assets/images/7-cedar-elm-cir-allen-tx-75002-2-High-Res-12.jpg",
-    "Assets/images/7-cedar-elm-cir-allen-tx-75002-2-High-Res-13.jpg",
-    "Assets/images/7-cedar-elm-cir-allen-tx-75002-2-High-Res-14.jpg",
-    "Assets/images/7-cedar-elm-cir-allen-tx-75002-2-High-Res-15.jpg",
-    "Assets/images/7-cedar-elm-cir-allen-tx-75002-2-High-Res-16.jpg",
-    "Assets/images/7-cedar-elm-cir-allen-tx-75002-2-High-Res-17.jpg",
-    "Assets/images/7-cedar-elm-cir-allen-tx-75002-2-High-Res-18.jpg"
-  ];
+    const carousel = document.getElementById("card-carousel");
 
-  const carousel = document.getElementById("card-carousel");
-
-  // Dynamically inject images
-  images.forEach(src => {
-    const img = document.createElement("img");
-    img.src = src;
-    img.className = "absolute w-full h-full object-cover rounded-2xl shadow-lg transition-all duration-700";
-    carousel.appendChild(img);
-  });
-
-  const cards = carousel.querySelectorAll("img");
-  let current = 0;
-
-  function updateCards() {
-    cards.forEach(card => {
-      card.style.opacity = "0";
-      card.style.zIndex = "0";
-      card.style.transform = "scale(0.75) translateX(240px)";
+    // Dynamically inject images
+    images.forEach(src => {
+        const img = document.createElement("img");
+        img.src = src;
+        img.className = "absolute w-full h-full object-cover rounded-2xl shadow-lg transition-all duration-700";
+        carousel.appendChild(img);
     });
 
-    // Foremost (big center card)
-    cards[current].style.opacity = "1";
-    cards[current].style.zIndex = "40";
-    cards[current].style.transform = "scale(1.15) translateX(0)"; 
-    // 2nd card (slightly smaller, closer right)
-    let next = (current + 1) % cards.length;
-    cards[next].style.opacity = "1";
-    cards[next].style.zIndex = "30";
-    cards[next].style.transform = "scale(1) translateX(100px)";
+    const cards = carousel.querySelectorAll("img");
+    let current = 0;
 
-    // 3rd card (smaller, farther right)
-    let next2 = (current + 2) % cards.length;
-    cards[next2].style.opacity = "1";
-    cards[next2].style.zIndex = "20";
-    cards[next2].style.transform = "scale(0.9) translateX(180px)";
+    function updateCards() {
+        cards.forEach(card => {
+        card.style.opacity = "0";
+        card.style.zIndex = "0";
+        card.style.transform = "scale(0.75) translateX(240px)";
+        });
 
-    // 4th card (smallest, farthest right)
-    let next3 = (current + 3) % cards.length;
-    cards[next3].style.opacity = "1";
-    cards[next3].style.zIndex = "10";
-    cards[next3].style.transform = "scale(0.8) translateX(260px)";
-  }
+        // Foremost (big center card)
+        cards[current].style.opacity = "1";
+        cards[current].style.zIndex = "40";
+        cards[current].style.transform = "scale(1.15) translateX(0)"; 
+        // 2nd card (slightly smaller, closer right)
+        let next = (current + 1) % cards.length;
+        cards[next].style.opacity = "1";
+        cards[next].style.zIndex = "30";
+        cards[next].style.transform = "scale(1) translateX(100px)";
 
-  function nextCard() {
-    current = (current + 1) % cards.length;
+        // 3rd card (smaller, farther right)
+        let next2 = (current + 2) % cards.length;
+        cards[next2].style.opacity = "1";
+        cards[next2].style.zIndex = "20";
+        cards[next2].style.transform = "scale(0.9) translateX(180px)";
+
+        // 4th card (smallest, farthest right)
+        let next3 = (current + 3) % cards.length;
+        cards[next3].style.opacity = "1";
+        cards[next3].style.zIndex = "10";
+        cards[next3].style.transform = "scale(0.8) translateX(260px)";
+    }
+
+    function nextCard() {
+        current = (current + 1) % cards.length;
+        updateCards();
+    }
+
     updateCards();
-  }
-
-  updateCards();
-  setInterval(nextCard, 3000); // rotate every 3s
-</script>
+    setInterval(nextCard, 3000); // rotate every 3s
+    </script>
 
     <!-- About Us Section -->
     <section id="about" class="py-16 md:py-24 bg-white">
@@ -352,7 +361,7 @@
                         </svg>
                     </div>
                     <h3 class="text-2xl font-bold text-sky-800 mb-2">Phone</h3>
-                    <a href="tel:469-494-6693" class="text-sky-600 text-lg font-semibold hover:underline">469-494-6693</a>
+                    <a href="tel:+1 469-494-6693" class="text-sky-600 text-lg font-semibold hover:underline">+1 469-494-6693</a>
                 </div>
 
                 <!-- Email Card -->
