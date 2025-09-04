@@ -70,10 +70,16 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <header class="relative py-20 md:py-32 overflow-hidden bg-cover bg-center" style="background-image: url('Assets/images/7-cedar-elm-cir-allen-tx-75002-2-High-Res-2.webp');">
-        <div class="absolute inset-0 bg-sky-900 opacity-60"></div>
-        <div class="container mx-auto text-center px-4 relative z-10 text-white">
+<!-- Hero Section -->
+<header class="relative py-20 md:py-32 overflow-hidden bg-cover bg-center" 
+        style="background-image: url('Assets/images/7-cedar-elm-cir-allen-tx-75002-2-High-Res-2.webp');">
+    <!-- Darker overlay (80% opacity) -->
+    <div class="absolute inset-0 bg-sky-900 opacity-80"></div>
+
+    <div class="container mx-auto flex flex-col md:flex-row items-center md:gap-8 px-4 relative z-10 text-white">
+        
+        <!-- Left Text Content -->
+        <div class="md:w-1/2 text-center md:text-left mb-10 md:mb-0">
             <h1 class="text-4xl md:text-6xl font-extrabold mb-4">
                 Home Based Care in Allen, TX
             </h1>
@@ -84,7 +90,89 @@
                 Schedule a Tour
             </a>
         </div>
-    </header>
+
+        <!-- Right Side Foreground Card Carousel -->
+        <div class="md:w-1/2 flex justify-center relative">
+            <!-- Stretched cards -->
+            <div id="card-carousel" class="relative w-[22rem] h-[30rem]"></div>
+        </div>
+    </div>
+</header>
+
+<script>
+  // Image paths stored in an array
+  const images = [
+    "Assets/images/7-cedar-elm-cir-allen-tx-75002-2-High-Res-1.webp",
+    "Assets/images/7-cedar-elm-cir-allen-tx-75002-2-High-Res-2.webp",
+    "Assets/images/7-cedar-elm-cir-allen-tx-75002-2-High-Res-3.webp",
+    "Assets/images/7-cedar-elm-cir-allen-tx-75002-2-High-Res-4.webp", 
+    "Assets/images/7-cedar-elm-cir-allen-tx-75002-2-High-Res-5.webp",
+    "Assets/images/7-cedar-elm-cir-allen-tx-75002-2-High-Res-6.webp",
+    "Assets/images/7-cedar-elm-cir-allen-tx-75002-2-High-Res-7.webp",
+    "Assets/images/7-cedar-elm-cir-allen-tx-75002-2-High-Res-8.webp",
+    "Assets/images/7-cedar-elm-cir-allen-tx-75002-2-High-Res-9.webp",
+    "Assets/images/7-cedar-elm-cir-allen-tx-75002-2-High-Res-10.webp",
+    "Assets/images/7-cedar-elm-cir-allen-tx-75002-2-High-Res-11.jpg",
+    "Assets/images/7-cedar-elm-cir-allen-tx-75002-2-High-Res-12.jpg",
+    "Assets/images/7-cedar-elm-cir-allen-tx-75002-2-High-Res-13.jpg",
+    "Assets/images/7-cedar-elm-cir-allen-tx-75002-2-High-Res-14.jpg",
+    "Assets/images/7-cedar-elm-cir-allen-tx-75002-2-High-Res-15.jpg",
+    "Assets/images/7-cedar-elm-cir-allen-tx-75002-2-High-Res-16.jpg",
+    "Assets/images/7-cedar-elm-cir-allen-tx-75002-2-High-Res-17.jpg",
+    "Assets/images/7-cedar-elm-cir-allen-tx-75002-2-High-Res-18.jpg"
+  ];
+
+  const carousel = document.getElementById("card-carousel");
+
+  // Dynamically inject images
+  images.forEach(src => {
+    const img = document.createElement("img");
+    img.src = src;
+    img.className = "absolute w-full h-full object-cover rounded-2xl shadow-lg transition-all duration-700";
+    carousel.appendChild(img);
+  });
+
+  const cards = carousel.querySelectorAll("img");
+  let current = 0;
+
+  function updateCards() {
+    cards.forEach(card => {
+      card.style.opacity = "0";
+      card.style.zIndex = "0";
+      card.style.transform = "scale(0.75) translateX(240px)";
+    });
+
+    // Foremost (big center card)
+    cards[current].style.opacity = "1";
+    cards[current].style.zIndex = "40";
+    cards[current].style.transform = "scale(1.15) translateX(0)"; 
+    // 2nd card (slightly smaller, closer right)
+    let next = (current + 1) % cards.length;
+    cards[next].style.opacity = "1";
+    cards[next].style.zIndex = "30";
+    cards[next].style.transform = "scale(1) translateX(100px)";
+
+    // 3rd card (smaller, farther right)
+    let next2 = (current + 2) % cards.length;
+    cards[next2].style.opacity = "1";
+    cards[next2].style.zIndex = "20";
+    cards[next2].style.transform = "scale(0.9) translateX(180px)";
+
+    // 4th card (smallest, farthest right)
+    let next3 = (current + 3) % cards.length;
+    cards[next3].style.opacity = "1";
+    cards[next3].style.zIndex = "10";
+    cards[next3].style.transform = "scale(0.8) translateX(260px)";
+  }
+
+  function nextCard() {
+    current = (current + 1) % cards.length;
+    updateCards();
+  }
+
+  updateCards();
+  setInterval(nextCard, 3000); // rotate every 3s
+</script>
 
     <!-- About Us Section -->
     <section id="about" class="py-16 md:py-24 bg-white">
@@ -230,69 +318,6 @@
         </div>
     </section>
 
-    <!-- Gallery -->
-    <section id="gallery" class="py-16 md:py-24 bg-white">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl md:text-4xl font-bold text-sky-800 mb-4">Our Gallery</h2>
-                <p class="text-lg text-gray-600 max-w-3xl mx-auto">
-                    Explore our beautiful, safe, and clean environment through these photos.
-                </p>
-            </div>
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-                <!-- Gallery Images -->
-                
-                <div class="rounded-lg overflow-hidden shadow-lg transform hover:scale-105 transition-transform duration-300">
-                    <img src="Assets/images/7-cedar-elm-cir-allen-tx-75002-2-High-Res-3.webp" alt="A photo of the dining area" class="w-full h-auto object-cover">
-                </div>
-                <div class="rounded-lg overflow-hidden shadow-lg transform hover:scale-105 transition-transform duration-300">
-                    <img src="Assets/images/7-cedar-elm-cir-allen-tx-75002-2-High-Res-4.webp" alt="A photo of the outdoor patio" class="w-full h-auto object-cover">
-                </div>
-                <div class="rounded-lg overflow-hidden shadow-lg transform hover:scale-105 transition-transform duration-300">
-                    <img src="Assets/images/7-cedar-elm-cir-allen-tx-75002-2-High-Res-5.webp" alt="A photo of a resident activity" class="w-full h-auto object-cover">
-                </div>
-                <div class="rounded-lg overflow-hidden shadow-lg transform hover:scale-105 transition-transform duration-300">
-                    <img src="Assets/images/7-cedar-elm-cir-allen-tx-75002-2-High-Res-6.webp" alt="A photo of a private room" class="w-full h-auto object-cover">
-                </div>
-                <div class="rounded-lg overflow-hidden shadow-lg transform hover:scale-105 transition-transform duration-300">
-                    <img src="Assets/images/7-cedar-elm-cir-allen-tx-75002-2-High-Res-7.webp" alt="A photo of the RN team" class="w-full h-auto object-cover">
-                </div>
-                <div class="rounded-lg overflow-hidden shadow-lg transform hover:scale-105 transition-transform duration-300">
-                    <img src="Assets/images/7-cedar-elm-cir-allen-tx-75002-2-High-Res-8.webp" alt="A photo of the facility exterior" class="w-full h-auto object-cover">
-                </div>
-                <div class="rounded-lg overflow-hidden shadow-lg transform hover:scale-105 transition-transform duration-300">
-                    <img src="Assets/images/7-cedar-elm-cir-allen-tx-75002-2-High-Res-9.webp" alt="A photo of a hallway" class="w-full h-auto object-cover">
-                </div>
-                <div class="rounded-lg overflow-hidden shadow-lg transform hover:scale-105 transition-transform duration-300">
-                    <img src="Assets/images/7-cedar-elm-cir-allen-tx-75002-2-High-Res-10.webp" alt="A photo of a seated area" class="w-full h-auto object-cover">
-                </div>
-                <div class="rounded-lg overflow-hidden shadow-lg transform hover:scale-105 transition-transform duration-300">
-                    <img src="Assets/images/7-cedar-elm-cir-allen-tx-75002-2-High-Res-11.jpg" alt="A photo of the community room" class="w-full h-auto object-cover">
-                </div>
-                <div class="rounded-lg overflow-hidden shadow-lg transform hover:scale-105 transition-transform duration-300">
-                    <img src="Assets/images/7-cedar-elm-cir-allen-tx-75002-2-High-Res-12.jpg" alt="A photo of a semi-private room" class="w-full h-auto object-cover">
-                </div>
-                <div class="rounded-lg overflow-hidden shadow-lg transform hover:scale-105 transition-transform duration-300">
-                    <img src="Assets/images/7-cedar-elm-cir-allen-tx-75002-2-High-Res-13.jpg" alt="A photo of a semi-private room" class="w-full h-auto object-cover">
-                </div>
-                <div class="rounded-lg overflow-hidden shadow-lg transform hover:scale-105 transition-transform duration-300">
-                    <img src="Assets/images/7-cedar-elm-cir-allen-tx-75002-2-High-Res-14.jpg" alt="A photo of a semi-private room" class="w-full h-auto object-cover">
-                </div>
-                <div class="rounded-lg overflow-hidden shadow-lg transform hover:scale-105 transition-transform duration-300">
-                    <img src="Assets/images/7-cedar-elm-cir-allen-tx-75002-2-High-Res-15.jpg" alt="A photo of a semi-private room" class="w-full h-auto object-cover">
-                </div>
-                <div class="rounded-lg overflow-hidden shadow-lg transform hover:scale-105 transition-transform duration-300">
-                    <img src="Assets/images/7-cedar-elm-cir-allen-tx-75002-2-High-Res-16.jpg" alt="A photo of a semi-private room" class="w-full h-auto object-cover">
-                </div>
-                <div class="rounded-lg overflow-hidden shadow-lg transform hover:scale-105 transition-transform duration-300">
-                    <img src="Assets/images/7-cedar-elm-cir-allen-tx-75002-2-High-Res-17.jpg" alt="A photo of a semi-private room" class="w-full h-auto object-cover">
-                </div>
-                <div class="rounded-lg overflow-hidden shadow-lg transform hover:scale-105 transition-transform duration-300">
-                    <img src="Assets/images/7-cedar-elm-cir-allen-tx-75002-2-High-Res-18.jpg" alt="A photo of a semi-private room" class="w-full h-auto object-cover">
-                </div>
-            </div>
-        </div>
-    </section>
 
     <!-- Contact Section -->
     <section id="contact" class="py-16 md:py-24 bg-sky-50">
